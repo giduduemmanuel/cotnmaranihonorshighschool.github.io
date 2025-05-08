@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COTN MARANI HONORS HIGH SCHOOL, LIRA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+    td, th {
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+    .table-hover tr:hover {
+        background-color: #f1f1f1;
+    }
+    .table-responsive {
+        overflow-x: auto;
+    }
+    /* General Reset */
+    body, h1, h2, h3, p, ul, li, a, button {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 15px;
+    }
+
+    .nav-links li {
+        list-style: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .hero button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Features Section */
+    .features {
+        padding: 20px 0;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .feature-card {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    /* Table Styles */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table th, .table td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #f2f2f2;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .hero button {
+            font-size: 0.9rem;
+        }
+
+        .feature-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .table th, .table td {
+            font-size: 0.9rem;
+        }
+
+        .carousel-inner video {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 0.9rem;
+        }
+
+        .hero button {
+            font-size: 0.8rem;
+        }
+
+        .feature-card {
+            padding: 10px;
+        }
+
+        .table th, .table td {
+            font-size: 0.8rem;
+        }
+    }  
+    /* Responsive Navigation Bar */
+    .nav-links {
+        display: flex;
+        gap: 15px;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background-color: #f2f2f2;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 100%;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .hamburger {
+            display: block;
+        }
+    }
+    /* Responsive Contact Form */
+    #contacts .card {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        #contacts .card {
+            padding: 15px;
+        }
+
+        #contacts .form-label {
+            font-size: 0.9rem;
+        }
+
+        #contacts .form-control {
+            font-size: 0.9rem;
+        }
+
+        #contacts button {
+            font-size: 0.9rem;
+            padding: 8px 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        #contacts .card {
+            padding: 10px;
+        }
+
+        #contacts .form-label {
+            font-size: 0.8rem;
+        }
+
+        #contacts .form-control {
+            font-size: 0.8rem;
+        }
+
+        #contacts button {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+    }
+    
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><h1>COTN MHHS</h1></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#school">Our School</a></li>
+                    <li><a href="#staffs">School Staff</a></li>
+                    <li><a href="#news">School News</a></li>
+                    <li><a href="#Tutorials">Video Tutorials</a></li>
+                    <li><a href="#downloads">Download Notes</a></li>
+                    <li><a href="#contacts">Contact Us</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button id="loginBtn" class="btn">Login</button>
+                    <button id="signupBtn" class="btn btn-outline">Sign Up</button>
+                </div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>WELCOME TO COTN MARANI HONORS HIGH SCHOOL, LIRA</h1>
+                <p>"FOR GOD, FOR EXCELLENCE"</p>
+                <p>"Raising Children Who Transform Nations"</p>
+                <button id="ctaBtn" class="btn btn-large" style=" border: 3px solid">Enroll Today</button><br>
+                <!--add a form here-->
+    
+                <div id="enrollModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 700px; background-color: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div class="modal-content" style="background-color: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); position: relative;">
+                        <h2 style="text-align: center;">Student Enrollment Form</h2>
+                        <form id="enrollForm">
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label for="studentName">Full Name</label>
+                                <input type="text" id="studentName" name="studentName" placeholder="Enter full name" required style="width: 100%; padding: 10px; margin-top: 2px; border: 1px solid #ccc; border-radius: 5px;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" id="dob" name="dob" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label for="parentName">Parent/Guardian Name</label>
+                                <input type="text" id="parentName" name="parentName" placeholder="Enter parent/guardian name" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label for="contact">Contact Number</label>
+                                <input type="tel" id="contact" name="contact" placeholder="Enter contact number" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label for="address">Home Address</label>
+                                <textarea id="address" name="address" placeholder="Enter home address" rows="3" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label for="previousSchool">Previous School</label>
+                                <input type="text" id="previousSchool" name="previousSchool" placeholder="Enter previous school name" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label for="class">Class to Enroll</label>
+                                <select id="class" name="class" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                                    <option value="">Select Class</option>
+                                    <option value="olevel">O'Level</option>
+                                    <option value="alevel">A'Level</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="display: flex; justify-content: space-between; margin-top: 10px;">
+                                <button type="submit" class="btn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+                                <button type="button" class="btn cancel" style="padding: 10px 20px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--end of form-->
+            </div>
+        </section>
+        <!--Photo gallery-->
+        <section id="photoGallery" class="feature-card" style="background-color: lightgray; height: 100vh; overflow: hidden; position: relative;">
+            <h2 class="text-center" style="padding-top: 10px;">School Photo Gallery and Projects</h2>
+            <div class="gallery-container">
+                <!-- Add 20 images -->
+                <div class="gallery-item"><img src="img1.jpg" alt="Gallery Image 1"></div>
+                <div class="gallery-item"><img src="img2.jpg" alt="Gallery Image 2"></div>
+                <div class="gallery-item"><img src="img3.jpg" alt="Gallery Image 3"></div>
+                <div class="gallery-item"><img src="img4.jpg" alt="Gallery Image 4"></div>
+                <div class="gallery-item"><img src="img5.jpg" alt="Gallery Image 5"></div>
+                <div class="gallery-item"><img src="img6.jpg" alt="Gallery Image 6"></div>
+                <div class="gallery-item"><img src="img7.jpeg" alt="Gallery Image 1"></div>
+                <div class="gallery-item"><img src="img8.jpeg" alt="Gallery Image 2"></div>
+                <div class="gallery-item"><img src="img9.jpeg" alt="Gallery Image 3"></div>
+                <div class="gallery-item"><img src="img10.jpeg" alt="Gallery Image 4"></div>
+                <div class="gallery-item"><img src="img11jpeg" alt="Gallery Image 5"></div>
+                <div class="gallery-item"><img src="img12.jpeg" alt="Gallery Image 6"></div>
+        
+            </div>
+        </section>
+        <!--end of gallery-->
+        <section class="features">
+            <div class="container">
+                <h2>Our school</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Vision</h3>
+                        <p>Raising Children who transform Nations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mision</h3>
+                        <p>To empower Children through quality and holistic education for sustainable development and transformation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Motto</h3>
+                        <p>FOR GOD, FOR EXCELLENCE</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <small class="error-message" id="emailError"></small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <small class="error-message" id="passwordError"></small>
+                </div>
+                <div class="form-group form-actions">
+                    <button type="submit" class="btn">Login</button>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+            </form>
+            <div class="social-login">
+                <p>Or login with:</p>
+                <div class="social-icons">
+                    <button class="social-btn google"><i class="fab fa-google"></i></button>
+                    <button class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                    <button class="social-btn twitter"><i class="fab fa-twitter"></i></button>
+                </div>
+            </div>
+            <div class="signup-link">
+                Don't have an account? <a href="#" id="showSignup">Sign up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal (hidden by default) -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create Your Account</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" name="email" required>
+                    <small class="error-message" id="signupEmailError"></small>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" required>
+                    <small class="error-message" id="signupPasswordError"></small>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <small class="error-message" id="confirmPasswordError"></small>
+                </div>
+                <div class="form-group form-actions">
+                    <button type="submit" class="btn">Sign Up</button>
+                </div>
+            </form>
+            <div class="login-link">
+                Already have an account? <a href="#" id="showLogin">Login</a>
+            </div>
+        </div>
+    </div>
+    <!--add the second section here about-->
+    <section id="school" class="feature-card" style="background-color: aqua; color: red">
+        <h2>About Us</h2>
+        <div class="feature-card">
+            <strong><b><p>School Background</p></b></strong>
+            <p>COTN Marani Honors High School is a christian founded secondary school registered under 
+                the ministry of education and sports.</p>
+            <p>We are a day and boarding secondary school, with O and A level, located in Lira city west division.</p>
+            <p>We are an institution that offers value driven education, promoting spiritual growth, </p>
+            <p>moral discernment, and social responsibility empowering students </p>
+            <p>to make positive impact in communities</p>
+            <p>We are a school that is committed to providing quality education, </p>
+            <p>and we are dedicated to the holistic development of our students.</p>
+        </div>
+
+        <div class="feature-card">
+            <strong><p>Our fees Structure</p></strong>
+            <p>Admission fee - 20,000/=</p>
+            <p>School Fees for O'level (day) - 453,000/=</p>
+            <p>School Fees for O'level (boarding) - 553,000/=</p>
+            <p>School Fees for A'level (day) - 550,000/=</p>
+            <p>School Fees for A'level (boarding) - 650,000/=</p>
+        </div>
+
+        
+        <div class="feature-card">
+            <strong><p>Student Bursaries</p></strong>
+            <P>Academic Bursaries are awarded to the best two(2) students per class every term</P>
+            <p>A student who maintains good performance will study for free throughout.</p>
+        </div>
+
+        <div class="feature-card">
+            <strong><p>School Address</p></strong>
+            <p>Anai-Okii, 2.5 miles from Downtown Lira city</p>
+        </div>
+
+        <div class="feature-card">
+            <strong><p>School Hours</p></strong>
+            <p>During regsitration, the school is open from 08:00 am to 05:00 pm from monday to friday</p>
+        </div>
+        <div class="feature-card">
+            <strong><p>2025 School Calendar</p></strong>
+            <p>First term - 13 weeks</p>
+            <p>Second term - 13 weeks</p>
+            <p>Third term - 12 weeks</p>
+            <p>End of year holiday - 2 months</p>
+        </div>
+        <div class="feature-card">
+            <p>
+                <a class="btn btn-primary" data-bs-toggle="collapse" href="#results" role="button" aria-expanded="false" aria-controls="results">
+                    <strong><p style="color: red;">School Academics Performance -- Click to view >> </p></strong>
+                </a>
+            </p>
+            <div class="collapse" id="results">
+                <div class="card card-body">
+                    <p>O'LEVEL</p>
+                    <table class="table table-bordered table-hover table-responsive" style="border: 1px solid; width: 100%;">
+                        <tr>
+                            <th>Year</th>
+                            <th>Div 1</th>
+                            <th>Div 2</th>
+                            <th>Div 3</th>
+                            <th>Div 4</th>
+                            <th>Div 7</th>
+                            <th>Div x</th>
+                            <th>Total</th>
+                        </tr>
+                        <tr>
+                            <td>2024</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                        
+                    </table>
+                    <p>A'LEVEL</p>
+                    <table class="table table-bordered table-hover table-responsive" style="border: 1px solid; width: 100%;">
+                        <tr>
+                            <th>Year</th>
+                            <th>Div 1</th>
+                            <th>Div 2</th>
+                            <th>Div 3</th>
+                            <th>Div 4</th>
+                            <th>Div 7</th>
+                            <th>Div x</th>
+                            <th>Total</th>
+                        </tr>
+                        <tr>
+                            <td>2024</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                            <td>To be filled</td>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--add the third section here services-->
+    <section id="staffs" class="feature-card" style="background-color: chocolate;">
+        <h2 style="color: black;">Our School staff</h2>
+        <!--school admin-->
+            <p>
+                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <strong><p style="color: red;">School Administration -- Click to view >> </p></strong>
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <table class="table table-bordered table-hover table-responsive" style="border: 1px solid; width: 100%;">
+                        <tr>
+                            <th>Name of Admin</th>
+                            <th>Position Held</th>
+                        </tr>
+                        <tr>
+                            <td>Arach Benard</td>
+                            <td>Head Teacher</td>
+                        </tr>
+                        <tr>
+                            <td>Oporia Moses Teba</td>
+                            <td>Deputy Head Teacher (Administration)</td>
+                        </tr>
+                        <tr>
+                            <td>Obong Phillips Ray</td>
+                            <td>Deputy Head Teacher (Academics)</td>
+                        </tr>
+                        <tr>
+                            <td>Obong Innocent</td>
+                            <td>Director of Studies (DOS) A'level</td>
+                        </tr>
+                        <tr>
+                            <td>Walubya Kenneth</td>
+                            <td>Director of Studies (DOS) O'level</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        <!--teaching staff-->  
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#teaching" role="button" aria-expanded="false" aria-controls="teaching">
+                <strong><p style="color: red;">Teaching Staff -- Click to view >> </p></strong>
+            </a>
+        </p>
+        <div class="collapse" id="teaching">
+            <div class="card card-body">
+                <table class="table table-bordered table-hover table-responsive" style="border: 1px solid; width: 100%;">
+                    <tr>
+                        <th>Name of Teacher</th>
+                        <th>Teaching Subject(s)</th>
+                    </tr>
+                    <tr>
+                        <td>Emmanuel Gidudu</td>
+                        <td>ICT (Information Communication Technology)</td>
+                    </tr>
+                    <tr>
+                        <td>Obua Raifa</td>
+                        <td>Chemistry/Mathematics</td>
+                    </tr>
+                    <tr>
+                        <td>Otucu Denish</td>
+                        <td>Agriculture</td>
+                    </tr>
+                    <tr>
+                        <td>Acio Evaline</td>
+                        <td>ICT (Information Communication Technology)</td>
+                    </tr>
+                    <tr>
+                        <td>Ewaa Nickson</td>
+                        <td>History/CRE</td>
+                    </tr>
+                    <tr>
+                        <td>Apio Immaculate</td>
+                        <td>Biology/Chemistry</td>
+                    </tr>
+                    <tr>
+                        <td>Aparo Immaculate</td>
+                        <td>English Language & Literature</td>
+                    </tr>
+                    <tr>
+                        <td>Ayo Isaac</td>
+                        <td>Mathematics/Physics</td>
+                    </tr>
+                    <tr>
+                        <td>Opinya Harriet</td>
+                        <td>Agriculture</td>
+                    </tr>
+                    <tr>
+                        <td>Kintho Kulabako Marie</td>
+                        <td>English Language & Literature</td>
+                    </tr>
+                    <tr>
+                        <td>Angwech Gloria</td>
+                        <td>English Language & Literature</td>
+                    </tr>
+                    <tr>
+                        <td>Makoko Appolo Kissa</td>
+                        <td>Chemistry/Mathematics</td>
+                    </tr>
+                    <tr>
+                        <td>Apule Tonny</td>
+                        <td>Entrepreneurship/Economics</td>
+                    </tr>
+                    <tr>
+                        <td>Aceng Gloria</td>
+                        <td>Entrepreneurship/Economics</td>
+                    </tr>
+                    <tr>
+                        <td>Okori Aron</td>
+                        <td>Entrepreneurship/Economics</td>
+                    </tr>
+                    <tr>
+                        <td>Akullo Gloria</td>
+                        <td>Physical Education</td>
+                    </tr>
+                    <tr>
+                        <td>Alwedo Jolly Joy</td>
+                        <td>Kiswahili</td>
+                    </tr>
+                    <tr>
+                        <td>Tumusiime Emmanuel</td>
+                        <td>Biology</td>
+                    </tr>
+                    <tr>
+                        <td>Obong Jimmy</td>
+                        <td>Biology</td>
+                    </tr>
+                    <tr>
+                        <td>Aceng Fosca</td>
+                        <td>Biology</td>
+                    </tr>
+                    <tr>
+                        <td>Akaca James</td>
+                        <td>Agriculture</td>
+                    </tr>
+                    <tr>
+                        <td>Omara Harriet</td>
+                        <td>Art and Design</td>
+                    </tr>
+                    <tr>
+                        <td>Ekwamg Micheal</td>
+                        <td>Art and Design</td>
+                    </tr>
+                    <tr>
+                        <td>Ojulong Charles</td>
+                        <td>Geography/History</td>
+                    </tr>
+                    <tr>
+                        <td>Achola Consolate</td>
+                        <td>Geography</td>
+                    </tr>
+                    <tr>
+                        <td>Ogwal Benard</td>
+                        <td>Geography</td>
+                    </tr>
+                    <tr>
+                        <td>Odora Jimmy</td>
+                        <td>Geography/CRE</td>
+                    </tr>
+                    <tr>
+                        <td>Ojok  Haggai</td>
+                        <td>English Language and literature</td>
+                    </tr>
+                    <tr>
+                        <td>Nam Dan</td>
+                        <td>Physics/Mathematics</td>
+                    </tr>
+                    <tr>
+                        <td>Ogwal Felix</td>
+                        <td>Physics/Mathematics</td>
+                    </tr>
+                    <tr>
+                        <td>Ongom Isaac</td>
+                        <td>CRE</td>
+                    </tr>
+                    <tr>
+                        <td>Omara Kenneth</td>
+                        <td>Physics/Mathematics</td>
+                    </tr>
+                    <tr>
+                        <td>Teacher 5</td>
+                        <td>Subjects(s)</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+        <strong><p style="color: red;"></p></strong>
+        <!--non-teaching staff-->
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#nonteaching" role="button" aria-expanded="false" aria-controls="nonteaching">
+                <strong><p style="color: red;">Non-Teaching Staff -- Click to view >> </p></strong>
+            </a>
+        </p>
+        <div class="collapse" id="nonteaching">
+            <div class="card card-body">
+                <table class="table table-bordered table-hover table-responsive" style="border: 1px solid; width: 100%;">
+                    <tr>
+                        <th>Name of Staff</th>
+                        <th>Position Held</th>
+                    </tr>
+                    <tr>
+                        <td>Lunyolo Stella</td>
+                        <td>Librarian</td>
+                    </tr>
+                    <tr>
+                        <td>Ongako Denis</td>
+                        <td>Secretary</td>
+                    </tr>
+                    <tr>
+                        <td>Apio Immaculate</td>
+                        <td>Science Laboratory Attendant</td>
+                    </tr>
+                    <tr>
+                        <td>Person 4</td>
+                        <td>Work Area 4</td>
+                    </tr>
+                    <tr>
+                        <td>Person 5</td>
+                        <td>Work Area 5</td>
+                    </tr>
+                    <tr>
+                        <td>Person 5</td>
+                        <td>Work Area 5</td>
+                    </tr>
+                    <tr>
+                        <td>Person 5</td>
+                        <td>Work Area 5</td>
+                    </tr>
+                    <tr>
+                        <td>Person 5</td>
+                        <td>Work Area 5</td>
+                    </tr>
+                    <tr>
+                        <td>Person 5</td>
+                        <td>Work Area 5</td>
+                    </tr>
+                    <tr>
+                        <td>Person 5</td>
+                        <td>Work Area 5</td>
+                    </tr>
+                    <tr>
+                        <td>Person 5</td>
+                        <td>Work Area 5</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!--add the fourth section here contacts-->
+    <section id="news" class="feature-card" style="background-color:darkkhaki;">
+        <h2>School News</h2>
+        <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <p>First term of 2025 ended on 2nd of May 2025, and all students were sent home</p>
+                    <p>School reopens for Term 2 on May 25th, 2025.</p>
+                    <p>The school administration wishes all student a nice holiday</p>
+                    <p>All students are advised to take care and help their parents during this holiday</p>
+                    <p><i>(Head teacher Mr. Arach Benard)</i></p>
+                </div>
+                <div class="carousel-item">
+                    <p>COTN Marani honors student under the guidance of the debates patron Mr. Ewaa Nickson </p>
+                    <p>are participating in the ongoing school debate competitions.</p>
+                </div>
+                <div class="carousel-item">
+                    <p><img src="scienceexhi.jpeg"></p>
+                    <p>Science Students project exhibition</p>
+                </div>
+                <div class="carousel-item">
+                    <p>Other News loading ....</p>
+                </div>
+                <div class="carousel-item">
+                    <p>Other News loading ....</p>
+                </div>
+                <div class="carousel-item">
+                    <p>Other News loading ....</p>
+                </div>
+                <div class="carousel-item">
+                    <p>Other News loading ....</p>
+                </div>
+                <div class="carousel-item">
+                    <p>Other News loading .....</p>
+                </div>
+                <div class="carousel-item">
+                    <p>Other News loading ....</p>
+                </div>
+                <div class="carousel-item">
+                    <p>The best two(2) Academic performers in term 1 of 2025 have been awarded </p>
+                    <p>bursaries to study for free next term.</p>
+                </div>
+            </div>
+            <!-- Carousel controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <!--add the fifth section here contacts-->
+    <section id="contacts" class="feature-card" style="background-color: darkslategrey; display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div class="card" style="width: 40%; padding: 20px; background-color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            <h2 class="text-center">Contact Us</h2>
+            <!-- Contact Information -->
+            <p><strong>Telephone 1 & 2:</strong> +256 782 252 411 / +256 772 825 020</p>
+            <p><strong>Telephone 3 & 4:</strong> +256 773 355 106 / +256 761 133 362</p>
+            <p><strong>Email Address:</strong> cotn.maranihhs@gmail.com</p>
+        <!-- Contact Form -->
+            <form>
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Write your message here" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+    
+        </div>
+
+    </section>
+    <section id="Tutorials" class="feature-card" style="background-color: bisque;">
+        <h2>Video Tutorials</h2>
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#ict" role="button" aria-expanded="false" aria-controls="ict">
+                ICT (Information Communication Technology)
+            </a>
+        </p>
+        <div class="collapse" id="ict">
+            <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+                <div class="carousel-inner">
+                    <!-- First Video -->
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-center">
+                            <video width="640" height="360" controls>
+                                <source src="LESSON1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="text-center">ICT Tutorial: Introduction to VBA 1</p>
+                    </div>
+                    <!-- Second Video -->
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center">
+                            <video width="640" height="360" controls>
+                                <source src="LESSON2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="text-center">ICT Tutorial: Introduction to VBA 2</p>
+                    </div>
+                </div>
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#english" role="button" aria-expanded="false" aria-controls="english">
+                English Language
+            </a>
+        </p>
+        <div class="collapse" id="english">
+            <p>Details about English Language videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#math" role="button" aria-expanded="false" aria-controls="math">
+                Math
+            </a>
+        </p>
+        <div class="collapse" id="math">
+            <p>Details about Math videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#chemistry" role="button" aria-expanded="false" aria-controls="chemistry">
+                Chemistry
+            </a>
+        </p>
+        <div class="collapse" id="chemistry">
+            <p>Details about Chemistry videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#biology" role="button" aria-expanded="false" aria-controls="biology">
+                Biology
+            </a>
+        </p>
+        <div class="collapse" id="biology">
+            <p>Details about Biology videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#physics" role="button" aria-expanded="false" aria-controls="physics">
+                Physics
+            </a>
+        </p>
+        <div class="collapse" id="physics">
+            <p>Details about Physics videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#history" role="button" aria-expanded="false" aria-controls="history">
+                History
+            </a>
+        </p>
+        <div class="collapse" id="history">
+            <p>Details about History videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#geography" role="button" aria-expanded="false" aria-controls="geography">
+                Geography
+            </a>
+        </p>
+        <div class="collapse" id="geography">
+            <p>Details about Geography videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#agriculture" role="button" aria-expanded="false" aria-controls="agriculture">
+                Agriculture
+            </a>
+        </p>
+        <div class="collapse" id="agriculture">
+            <p>Details about Agriculture videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#cre" role="button" aria-expanded="false" aria-controls="cre">
+                CRE
+            </a>
+        </p>
+        <div class="collapse" id="cre">
+            <p>Details about CRE videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#kiswahili" role="button" aria-expanded="false" aria-controls="kiswahili">
+                Kiswahili
+            </a>
+        </p>
+        <div class="collapse" id="kiswahili">
+            <p>Details about Kiswahili videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#physicalEducation" role="button" aria-expanded="false" aria-controls="physicalEducation">
+                Physical Education
+            </a>
+        </p>
+        <div class="collapse" id="physicalEducation">
+            <p>Details about Physical Education videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#artAndDesign" role="button" aria-expanded="false" aria-controls="artAndDesign">
+                Art and Design
+            </a>
+        </p>
+        <div class="collapse" id="artAndDesign">
+            <p>Details about Art and Design videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#generalPaper" role="button" aria-expanded="false" aria-controls="generalPaper">
+                General Paper
+            </a>
+        </p>
+        <div class="collapse" id="generalPaper">
+            <p>Details about General Paper videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#entrepreneurship" role="button" aria-expanded="false" aria-controls="entrepreneurship">
+                Entrepreneurship
+            </a>
+        </p>
+        <div class="collapse" id="entrepreneurship">
+            <p>Details about Entrepreneurship videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#lebLango" role="button" aria-expanded="false" aria-controls="lebLango">
+                Leb-Lango
+            </a>
+        </p>
+        <div class="collapse" id="lebLango">
+            <p>Details about Leb-Lango videos...</p>
+        </div>
+        <hr width="100%">
+        <p>
+            <a class="btn btn-link" data-bs-toggle="collapse" href="#literature" role="button" aria-expanded="false" aria-controls="literature">
+                Literature in English
+            </a>
+        </p>
+        <div class="collapse" id="literature">
+            <p>Details about Literature in English videos...</p>
+        </div>
+    </section>
+
+    <section id="downloads" class="feature-card" style="background-color: aquamarine;">
+        <h2>Download Notes</h2>
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#ict" role="button" aria-expanded="false" aria-controls="ict">
+                    ICT (Information Communication Technology)
+                </a>
+            </p>
+            <div class="collapse" id="ict">
+                <p>Details about ICT notes...</p>
+                <p>
+                    <a href="Electronic Spreadsheets.pptx" download="Electronic Spreadsheet_Notes" class="btn btn-link">
+                        1. Download Spreadsheet Notes (pptx)
+                    </a>
+                </p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#english" role="button" aria-expanded="false" aria-controls="english">
+                    English Language
+                </a>
+            </p>
+            <div class="collapse" id="english">
+                <p>Details about English Language notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#math" role="button" aria-expanded="false" aria-controls="math">
+                    Math
+                </a>
+            </p>
+            <div class="collapse" id="math">
+                <p>Details about Math notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#chemistry" role="button" aria-expanded="false" aria-controls="chemistry">
+                    Chemistry
+                </a>
+            </p>
+            <div class="collapse" id="chemistry">
+                <p>Details about Chemistry notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#biology" role="button" aria-expanded="false" aria-controls="biology">
+                    Biology
+                </a>
+            </p>
+            <div class="collapse" id="biology">
+                <p>Details about Biology notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#physics" role="button" aria-expanded="false" aria-controls="physics">
+                    Physics
+                </a>
+            </p>
+            <div class="collapse" id="physics">
+                <p>Details about Physics notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#history" role="button" aria-expanded="false" aria-controls="history">
+                    History
+                </a>
+            </p>
+            <div class="collapse" id="history">
+                <p>Details about History notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#geography" role="button" aria-expanded="false" aria-controls="geography">
+                    Geography
+                </a>
+            </p>
+            <div class="collapse" id="geography">
+                <p>Details about Geography notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#agriculture" role="button" aria-expanded="false" aria-controls="agriculture">
+                    Agriculture
+                </a>
+            </p>
+            <div class="collapse" id="agriculture">
+                <p>Details about Agriculture notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#cre" role="button" aria-expanded="false" aria-controls="cre">
+                    CRE
+                </a>
+            </p>
+            <div class="collapse" id="cre">
+                <p>Details about CRE notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#kiswahili" role="button" aria-expanded="false" aria-controls="kiswahili">
+                    Kiswahili
+                </a>
+            </p>
+            <div class="collapse" id="kiswahili">
+                <p>Details about Kiswahili notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#physicalEducation" role="button" aria-expanded="false" aria-controls="physicalEducation">
+                    Physical Education
+                </a>
+            </p>
+            <div class="collapse" id="physicalEducation">
+                <p>Details about Physical Education notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#artAndDesign" role="button" aria-expanded="false" aria-controls="artAndDesign">
+                    Art and Design
+                </a>
+            </p>
+            <div class="collapse" id="artAndDesign">
+                <p>Details about Art and Design notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#generalPaper" role="button" aria-expanded="false" aria-controls="generalPaper">
+                    General Paper
+                </a>
+            </p>
+            <div class="collapse" id="generalPaper">
+                <p>Details about General Paper notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#entrepreneurship" role="button" aria-expanded="false" aria-controls="entrepreneurship">
+                    Entrepreneurship
+                </a>
+            </p>
+            <div class="collapse" id="entrepreneurship">
+                <p>Details about Entrepreneurship notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#lebLango" role="button" aria-expanded="false" aria-controls="lebLango">
+                    Leb-Lango
+                </a>
+            </p>
+            <div class="collapse" id="lebLango">
+                <p>Details about Leb-Lango notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#literature" role="button" aria-expanded="false" aria-controls="literature">
+                    Literature in English
+                </a>
+            </p>
+            <div class="collapse" id="literature">
+                <p>Details about Literature in English notes...</p>
+            </div>
+            <hr width="100%">
+            <p>
+                <a class="btn btn-link" data-bs-toggle="collapse" href="#projects" role="button" aria-expanded="false" aria-controls="projects">
+                    School Projects documents and Videos
+                </a>
+            </p>
+            <div class="collapse" id="projects">
+                <p>Details about School Projects...</p>
+                <p>
+                    <a href="AGRITECH-FEED-MASTER-SOLUTIONS PRESENTATION.pptx" download="AGRITECH-FEED-MASTER-SOLUTIONS PRESENTATION" class="btn btn-link">
+                        1. AgricTech-Master-Solutions Presentation (pptx)
+                    </a>
+                </p>
+            </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SchoolSite. All rights reserved. Developed and managed by COTN MHHS ICT Department</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        
+        const enrollBtn = document.getElementById('ctaBtn');
+        const enrollModal = document.getElementById('enrollModal');
+        const cancelBtn = document.querySelector('.cancel');
+
+        enrollBtn.addEventListener('click', () => {
+            enrollModal.style.display = 'flex';
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            enrollModal.style.display = 'none';
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
