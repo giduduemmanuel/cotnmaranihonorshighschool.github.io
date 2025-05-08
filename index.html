@@ -280,6 +280,56 @@
         }
     }
     
+    /* General styles for the contact card */
+    .contact-card {
+        width: 40%;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+    
+    /* Responsive styles for medium screens */
+    @media (max-width: 768px) {
+        .contact-card {
+            width: 80%;
+            padding: 15px;
+        }
+    
+        .form-label {
+            font-size: 0.9rem;
+        }
+    
+        .form-control {
+            font-size: 0.9rem;
+        }
+    
+        .btn {
+            font-size: 0.9rem;
+            padding: 8px 16px;
+        }
+    }
+    
+    /* Responsive styles for small screens */
+    @media (max-width: 480px) {
+        .contact-card {
+            width: 90%;
+            padding: 10px;
+        }
+    
+        .form-label {
+            font-size: 0.8rem;
+        }
+    
+        .form-control {
+            font-size: 0.8rem;
+        }
+    
+        .btn {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+    }
 </style>
 </head>
 <body>
@@ -892,13 +942,13 @@
     </section>
     <!--add the fifth section here contacts-->
     <section id="contacts" class="feature-card" style="background-color: darkslategrey; display: flex; justify-content: center; align-items: center; height: 100vh;">
-        <div class="card" style="width: 40%; padding: 20px; background-color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <div class="card contact-card">
             <h2 class="text-center">Contact Us</h2>
             <!-- Contact Information -->
             <p><strong>Telephone 1 & 2:</strong> +256 782 252 411 / +256 772 825 020</p>
             <p><strong>Telephone 3 & 4:</strong> +256 773 355 106 / +256 761 133 362</p>
             <p><strong>Email Address:</strong> cotn.maranihhs@gmail.com</p>
-        <!-- Contact Form -->
+            <!-- Contact Form -->
             <form>
                 <div class="mb-3">
                     <label for="fullName" class="form-label">Full Name</label>
@@ -916,9 +966,7 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
-    
         </div>
-
     </section>
     <section id="Tutorials" class="feature-card" style="background-color: bisque;">
         <h2>Video Tutorials</h2>
