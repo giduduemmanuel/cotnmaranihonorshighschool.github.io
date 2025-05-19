@@ -9,11 +9,65 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     
     <style>
+        .video-section {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .video-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-item {
+            position: absolute;
+            width: 300px;
+            max-width: 90%;
+            transition: opacity 0.5s;
+            opacity: 0;
+            display: none;
+        }
+
+        .video-item.active {
+            opacity: 1;
+            display: block;
+        }
+
+        /* Video positions */
+        .video-item:nth-child(1) { left: 5%; top: 10%; }
+        .video-item:nth-child(2) { right: 5%; top: 10%; }
+        .video-item:nth-child(3) { left: 5%; bottom: 10%; }
+        .video-item:nth-child(4) { right: 5%; bottom: 10%; }
+
+        .video-controls {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            transition: opacity 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .video-item {
+                position: relative;
+                left: auto !important;
+                right: auto !important;
+                top: auto !important;
+                bottom: auto !important;
+                margin: 20px auto;
+            }
+            .video-controls {
+                top: 30%;
+            }
+        }
     td, th {
         padding: 10px;
         text-align: left;
@@ -420,6 +474,24 @@
                 <!--end of form-->
             </div>
         </section>
+        <!--videos section-->
+        <section class="video-section">
+            <div class="video-controls">
+                <button class="btn btn-primary btn-lg play-button"></button>
+            </div>
+            <div class="container-fluid h-100">
+                <div class="video-container">
+                    <video class="video-item" playsinline>
+                        <source src="video1.mp4" type="video/mp4">
+                    </video>
+                    <video class="video-item" playsinline>
+                        <source src="LESSON1.mp4" type="video/mp4">
+                    </video>
+        
+                </div>
+            </div>
+        </section>
+
         <!--Photo gallery-->
         <section id="photoGallery" class="feature-card" style="background-color: lightgray; height: 100vh; overflow: hidden; position: relative;">
             <h2 class="text-center" style="padding-top: 10px;">School Photo Gallery and Projects</h2>
@@ -431,13 +503,15 @@
                 <div class="gallery-item"><img src="img4.jpg" alt="Gallery Image 4"></div>
                 <div class="gallery-item"><img src="img5.jpg" alt="Gallery Image 5"></div>
                 <div class="gallery-item"><img src="img6.jpg" alt="Gallery Image 6"></div>
-                <div class="gallery-item"><img src="img7.jpeg" alt="Gallery Image 1"></div>
-                <div class="gallery-item"><img src="img8.jpeg" alt="Gallery Image 2"></div>
-                <div class="gallery-item"><img src="img9.jpeg" alt="Gallery Image 3"></div>
-                <div class="gallery-item"><img src="img10.jpeg" alt="Gallery Image 4"></div>
-                <div class="gallery-item"><img src="img11jpeg" alt="Gallery Image 5"></div>
-                <div class="gallery-item"><img src="img12.jpeg" alt="Gallery Image 6"></div>
-        
+                <div class="gallery-item"><img src="img7.jpeg" alt="Gallery Image 7"></div>
+                <div class="gallery-item"><img src="img8.jpeg" alt="Gallery Image 8"></div>
+                <div class="gallery-item"><img src="img9.jpeg" alt="Gallery Image 9"></div>
+                <div class="gallery-item"><img src="img10.jpeg" alt="Gallery Image 10"></div>
+                <div class="gallery-item"><img src="img11jpeg" alt="Gallery Image 11"></div>
+                <div class="gallery-item"><img src="img12.jpeg" alt="Gallery Image 12"></div>
+                <div class="gallery-item"><img src="img13.jpg" alt="Gallery Image 13"></div>
+                <div class="gallery-item"><img src="img14.jpg" alt="Gallery Image 14"></div>
+                <div class="gallery-item"><img src="img15.jpg" alt="Gallery Image 15"></div>
             </div>
         </section>
         <!--end of gallery-->
@@ -651,6 +725,13 @@
                             <th>Name of Admin</th>
                             <th>Position Held</th>
                         </tr>
+                            <td>Rev. David Otto Ekwang</td>
+                            <td>Education Director</td>
+                        </tr>
+                        </tr>
+                            <td>Locken Ojungu Mark</td>
+                            <td>Principle of Schools</td>
+                        </tr>
                         <tr>
                             <td>Arach Benard</td>
                             <td>Head Teacher</td>
@@ -688,135 +769,135 @@
                         <th>Teaching Subject(s)</th>
                     </tr>
                     <tr>
-                        <td>Emmanuel Gidudu</td>
+                        <td><a href="https://giduduemmanuel.github.io/" target="_blank">Emmanuel Gidudu >> View profile</a></td>
                         <td>ICT (Information Communication Technology)</td>
                     </tr>
                     <tr>
-                        <td>Obua Raifa</td>
+                        <td>Obua Raifa >> View profile</td>
                         <td>Chemistry/Mathematics</td>
                     </tr>
                     <tr>
-                        <td>Otucu Denish</td>
+                        <td>Otucu Denish >> View profile</td>
                         <td>Agriculture</td>
                     </tr>
                     <tr>
-                        <td>Acio Evaline</td>
+                        <td>Acio Evaline >> View profile</td>
                         <td>ICT (Information Communication Technology)</td>
                     </tr>
                     <tr>
-                        <td>Ewaa Nickson</td>
+                        <td>Ewaa Nickson >> View profile</td>
                         <td>History/CRE</td>
                     </tr>
                     <tr>
-                        <td>Apio Immaculate</td>
+                        <td>Apio Immaculate >> View profile</td>
                         <td>Biology/Chemistry</td>
                     </tr>
                     <tr>
-                        <td>Aparo Immaculate</td>
+                        <td>Aparo Immaculate >> View profile</td>
                         <td>English Language & Literature</td>
                     </tr>
                     <tr>
-                        <td>Ayo Isaac</td>
+                        <td>Ayo Isaac >> View profile</td>
                         <td>Mathematics/Physics</td>
                     </tr>
                     <tr>
-                        <td>Opinya Harriet</td>
+                        <td>Opinya Harriet >> View profile</td>
                         <td>Agriculture</td>
                     </tr>
                     <tr>
-                        <td>Kintho Kulabako Marie</td>
+                        <td>Kintho Kulabako Marie >> View profile</td>
                         <td>English Language & Literature</td>
                     </tr>
                     <tr>
-                        <td>Angwech Gloria</td>
+                        <td>Angwech Gloria >> View profile</td>
                         <td>English Language & Literature</td>
                     </tr>
                     <tr>
-                        <td>Makoko Appolo Kissa</td>
+                        <td>Makoko Appolo Kissa >> View profile</td>
                         <td>Chemistry/Mathematics</td>
                     </tr>
                     <tr>
-                        <td>Apule Tonny</td>
+                        <td>Apule Tonny >> View profile</td>
                         <td>Entrepreneurship/Economics</td>
                     </tr>
                     <tr>
-                        <td>Aceng Gloria</td>
+                        <td>Aceng Gloria >> View profile</td>
                         <td>Entrepreneurship/Economics</td>
                     </tr>
                     <tr>
-                        <td>Okori Aron</td>
+                        <td>Okori Aron >> View profile</td>
                         <td>Entrepreneurship/Economics</td>
                     </tr>
                     <tr>
-                        <td>Akullo Gloria</td>
+                        <td>Akullo Gloria >> View profile</td>
                         <td>Physical Education</td>
                     </tr>
                     <tr>
-                        <td>Alwedo Jolly Joy</td>
+                        <td>Alwedo Jolly Joy >> View profile</td>
                         <td>Kiswahili</td>
                     </tr>
                     <tr>
-                        <td>Tumusiime Emmanuel</td>
+                        <td>Tumusiime Emmanuel >> View profile</td>
                         <td>Biology</td>
                     </tr>
                     <tr>
-                        <td>Obong Jimmy</td>
+                        <td>Obong Jimmy >> View profile</td>
                         <td>Biology</td>
                     </tr>
                     <tr>
-                        <td>Aceng Fosca</td>
+                        <td>Aceng Fosca >> View profile</td>
                         <td>Biology</td>
                     </tr>
                     <tr>
-                        <td>Akaca James</td>
+                        <td>Akaca James >> View profile</td>
                         <td>Agriculture</td>
                     </tr>
                     <tr>
-                        <td>Omara Harriet</td>
+                        <td>Omara Harriet >> View profile</td>
                         <td>Art and Design</td>
                     </tr>
                     <tr>
-                        <td>Ekwamg Micheal</td>
+                        <td>Ekwang Micheal >> View profile</td>
                         <td>Art and Design</td>
                     </tr>
                     <tr>
-                        <td>Ojulong Charles</td>
+                        <td>Ojulong Charles >> View profile</td>
                         <td>Geography/History</td>
                     </tr>
                     <tr>
-                        <td>Achola Consolate</td>
+                        <td>Achola Consolate >> View profile</td>
                         <td>Geography</td>
                     </tr>
                     <tr>
-                        <td>Ogwal Benard</td>
+                        <td>Ogwal Benard >> View profile</td>
                         <td>Geography</td>
                     </tr>
                     <tr>
-                        <td>Odora Jimmy</td>
+                        <td>Odora Jimmy >> View profile</td>
                         <td>Geography/CRE</td>
                     </tr>
                     <tr>
-                        <td>Ojok  Haggai</td>
+                        <td>Ojok  Haggai >> View profile</td>
                         <td>English Language and literature</td>
                     </tr>
                     <tr>
-                        <td>Nam Dan</td>
+                        <td>Nam Dan >> View profile</td>
                         <td>Physics/Mathematics</td>
                     </tr>
                     <tr>
-                        <td>Ogwal Felix</td>
+                        <td>Ogwal Felix >> View profile</td>
                         <td>Physics/Mathematics</td>
                     </tr>
                     <tr>
-                        <td>Ongom Isaac</td>
+                        <td>Ongom Isaac >> View profile</td>
                         <td>CRE</td>
                     </tr>
                     <tr>
-                        <td>Omara Kenneth</td>
+                        <td>Omara Kenneth >> View profile</td>
                         <td>Physics/Mathematics</td>
                     </tr>
                     <tr>
-                        <td>Teacher 5</td>
+                        <td>Teacher 5 >> View profile</td>
                         <td>Subjects(s)</td>
                     </tr>
 
@@ -907,8 +988,7 @@
                     <p>Science Students project exhibition</p>
                 </div>
                 <div class="carousel-item">
-                    <p>COTN Marani Honors High school are participating in the ongoing Stanbic Bank school Championship.</p>
-                    <p>Under the stewardship of Mr. Ewaa NIckson, we are expecting the best by God's grace.</p>
+                    <p>Other News loading ....</p>
                 </div>
                 <div class="carousel-item">
                     <p>Other News loading ....</p>
@@ -1359,5 +1439,91 @@
         });
     </script>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('.video-item');
+            const playButton = document.querySelector('.play-button');
+            let currentVideoIndex = 0;
+            let isPlaying = false;
+
+            // Initialize videos
+            videos.forEach(video => {
+                video.addEventListener('ended', playNextVideo);
+            });
+
+            // Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        tryAutoPlay();
+                    } else {
+                        pauseAllVideos();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(document.querySelector('.video-section'));
+
+            // Play button click handler
+            playButton.addEventListener('click', function() {
+                startVideoPlayback();
+                playButton.blur();
+            });
+
+            function tryAutoPlay() {
+                if (!isPlaying) {
+                    startVideoPlayback().catch(() => {
+                        playButton.style.display = 'block';
+                    });
+                }
+            }
+
+            async function startVideoPlayback() {
+                if (videos.length === 0) return;
+                
+                isPlaying = true;
+                playButton.style.display = 'none';
+                currentVideoIndex = 0;
+                
+                videos.forEach(video => {
+                    video.classList.remove('active');
+                    video.style.display = 'none';
+                });
+
+                videos[currentVideoIndex].style.display = 'block';
+                videos[currentVideoIndex].classList.add('active');
+                
+                try {
+                    await videos[currentVideoIndex].play();
+                } catch (error) {
+                    playButton.style.display = 'block';
+                    isPlaying = false;
+                    throw error;
+                }
+            }
+
+            function playNextVideo() {
+                videos[currentVideoIndex].classList.remove('active');
+                
+                currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+                
+                videos[currentVideoIndex].style.display = 'block';
+                videos[currentVideoIndex].classList.add('active');
+                videos[currentVideoIndex].play();
+            }
+
+            function pauseAllVideos() {
+                isPlaying = false;
+                playButton.style.display = 'block';
+                videos.forEach(video => {
+                    video.pause();
+                    video.currentTime = 0;
+                    video.classList.remove('active');
+                    video.style.display = 'none';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
