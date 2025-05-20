@@ -14,59 +14,75 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     
     <style>
-        .video-section {
+        .video-carousel {
             position: relative;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-        
-        .video-container {
-            position: absolute;
             width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container {
+            display: flex;
+            width: 300%;
             height: 100%;
+            transition: transform 1s ease-in-out;
         }
 
         .video-item {
+            position: relative;
+            width: 33.3333%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
             position: absolute;
-            width: 300px;
-            max-width: 90%;
-            transition: opacity 0.5s;
-            opacity: 0;
-            display: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
         }
-
-        .video-item.active {
-            opacity: 1;
-            display: block;
-        }
-
-        /* Video positions */
-        .video-item:nth-child(1) { left: 5%; top: 10%; }
-        .video-item:nth-child(2) { right: 5%; top: 10%; }
-        .video-item:nth-child(3) { left: 5%; bottom: 10%; }
-        .video-item:nth-child(4) { right: 5%; bottom: 10%; }
 
         .video-controls {
-            position: fixed;
-            top: 50%;
+            position: absolute;
+            bottom: 20px;
             left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-            transition: opacity 0.3s;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 30px;
+            z-index: 2;
         }
 
-        @media (max-width: 768px) {
-            .video-item {
-                position: relative;
-                left: auto !important;
-                right: auto !important;
-                top: auto !important;
-                bottom: auto !important;
-                margin: 20px auto;
-            }
-            .video-controls {
-                top: 30%;
-            }
+        .control-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
         }
     td, th {
         padding: 10px;
@@ -476,18 +492,15 @@
         </section>
         <!--videos section-->
         <section class="video-section">
-            <div class="video-controls">
-                <button class="btn btn-primary btn-lg play-button">Play Video</button>
-            </div>
-            <div class="container-fluid h-100">
-                <div class="video-container">
-                    <video class="video-item" playsinline>
-                        <source src="video1.mp4" type="video/mp4">
-                    </video>
-                    <video class="video-item" playsinline>
-                        <source src="LESSON1.mp4" type="video/mp4">
-                    </video>
+            <div class="video-carousel">
+                <div class="video-container" id="videoContainer">
+                    <!-- Video items will be added dynamically -->
+                </div>
         
+                <div class="video-controls">
+                    <button class="control-btn" id="play-pause">⏯</button>
+                    <button class="control-btn" id="mute-btn">🔊</button>
+                    <button class="control-btn" id="fullscreen-btn">⛶</button>
                 </div>
             </div>
         </section>
@@ -724,33 +737,41 @@
                         <tr>
                             <th>Name of Admin</th>
                             <th>Position Held</th>
+                            <th>Contacts</th>
                         </tr>
                             <td>Rev. David Otto Ekwang</td>
                             <td>Education Director</td>
+                            <th>+256-761 133 362</th>
                         </tr>
                         </tr>
                             <td>Locken Ojungu Mark</td>
-                            <td>Principle of Schools</td>
+                            <td>Principal of Schools</td>
+                            <th>+256-772 511 896</th>
                         </tr>
                         <tr>
                             <td>Arach Benard</td>
                             <td>Head Teacher</td>
+                            <th>+256-782 252 411</th>
                         </tr>
                         <tr>
                             <td>Oporia Moses Teba</td>
                             <td>Deputy Head Teacher (Administration)</td>
+                            <th>+256-772 825 020</th>
                         </tr>
                         <tr>
                             <td>Obong Phillips Ray</td>
                             <td>Deputy Head Teacher (Academics)</td>
+                            <th>+256-773 355 106</th>
                         </tr>
                         <tr>
                             <td>Obong Innocent</td>
                             <td>Director of Studies (DOS) A'level</td>
+                            <th>+256-771 814 642</th>
                         </tr>
                         <tr>
                             <td>Walubya Kenneth</td>
                             <td>Director of Studies (DOS) O'level</td>
+                            <th>+256-785 672 074</th>
                         </tr>
                     </table>
                 </div>
@@ -763,6 +784,20 @@
         </p>
         <div class="collapse" id="teaching">
             <div class="card card-body">
+                <table class="table table-bordered table-hover table-responsive" style="border: 1px solid; width: 100%;">
+                    <p>Other Teacher's Roles</p>
+                    <tr>
+                        <th>Name of Teacher</th>
+                        <th>Role</th>
+                        <th>Class/Section</th>
+                    </tr>
+                    <tr>
+                        <td>To be loaded</td>
+                        <td>To be loaded</td>
+                        <td>To be loaded</td>
+                    </tr>
+                    
+                </table>
                 <table class="table table-bordered table-hover table-responsive" style="border: 1px solid; width: 100%;">
                     <tr>
                         <th>Name of Teacher</th>
@@ -1439,91 +1474,120 @@
         });
     </script>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const videos = document.querySelectorAll('.video-item');
-            const playButton = document.querySelector('.play-button');
-            let currentVideoIndex = 0;
-            let isPlaying = false;
+        const videoPlaylist = [
+            'video1.mp4',
+            'LESSON1.mp4',
+            'LESSON2.mp4'
+        ];
 
-            // Initialize videos
-            videos.forEach(video => {
-                video.addEventListener('ended', playNextVideo);
+        let currentVideoIndex = 0;
+        const videoContainer = document.getElementById('videoContainer');
+        let isTransitioning = false;
+        let isAutoPlaying = true;
+
+        // Create video elements
+        videoPlaylist.forEach((src, index) => {
+            const videoItem = document.createElement('div');
+            videoItem.className = 'video-item';
+            
+            const video = document.createElement('video');
+            video.className = 'video-player';
+            video.src = src;
+            video.muted = true;
+            video.autoplay = index === 0;
+            video.loop = false;
+            video.playsinline = true;
+            video.preload = 'auto';
+            
+            const overlay = document.createElement('div');
+            overlay.className = 'video-overlay';
+            overlay.innerHTML = `
+                <h1>Video ${index + 1}</h1>
+                <p>Our school videos ${index + 1}</p>
+            `;
+            
+            videoItem.appendChild(video);
+            videoItem.appendChild(overlay);
+            videoContainer.appendChild(videoItem);
+
+            video.addEventListener('ended', () => {
+                if (!isTransitioning && isAutoPlaying) {
+                    isTransitioning = true;
+                    playNextVideo();
+                }
             });
+        });
 
-            // Intersection Observer
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        tryAutoPlay();
-                    } else {
-                        pauseAllVideos();
-                    }
-                });
-            }, { threshold: 0.5 });
+        const videos = document.querySelectorAll('.video-player');
 
-            observer.observe(document.querySelector('.video-section'));
-
-            // Play button click handler
-            playButton.addEventListener('click', function() {
-                startVideoPlayback();
-                playButton.blur();
-            });
-
-            function tryAutoPlay() {
-                if (!isPlaying) {
-                    startVideoPlayback().catch(() => {
-                        playButton.style.display = 'block';
+        function playNextVideo() {
+            const nextIndex = (currentVideoIndex + 1) % videoPlaylist.length;
+            
+            // Start transition
+            videoContainer.style.transform = `translateX(-${nextIndex * 33.3333}%)`;
+            
+            // Pause current video during transition
+            videos[currentVideoIndex].pause();
+            
+            videoContainer.addEventListener('transitionend', () => {
+                // Play the next video after transition completes
+                videos[nextIndex].currentTime = 0;
+                videos[nextIndex].play()
+                    .then(() => {
+                        isTransitioning = false;
+                        currentVideoIndex = nextIndex;
+                    })
+                    .catch(error => {
+                        console.error('Video play failed:', error);
+                        isTransitioning = false;
                     });
-                }
-            }
+            }, { once: true });
+        }
 
-            async function startVideoPlayback() {
-                if (videos.length === 0) return;
-                
-                isPlaying = true;
-                playButton.style.display = 'none';
-                currentVideoIndex = 0;
-                
-                videos.forEach(video => {
-                    video.classList.remove('active');
-                    video.style.display = 'none';
-                });
+        // Control handlers
+        const playPauseBtn = document.getElementById('play-pause');
+        const muteBtn = document.getElementById('mute-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
 
-                videos[currentVideoIndex].style.display = 'block';
-                videos[currentVideoIndex].classList.add('active');
-                
-                try {
-                    await videos[currentVideoIndex].play();
-                } catch (error) {
-                    playButton.style.display = 'block';
-                    isPlaying = false;
-                    throw error;
-                }
-            }
-
-            function playNextVideo() {
-                videos[currentVideoIndex].classList.remove('active');
-                
-                currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-                
-                videos[currentVideoIndex].style.display = 'block';
-                videos[currentVideoIndex].classList.add('active');
-                videos[currentVideoIndex].play();
-            }
-
-            function pauseAllVideos() {
-                isPlaying = false;
-                playButton.style.display = 'block';
-                videos.forEach(video => {
-                    video.pause();
-                    video.currentTime = 0;
-                    video.classList.remove('active');
-                    video.style.display = 'none';
-                });
+        playPauseBtn.addEventListener('click', () => {
+            const video = videos[currentVideoIndex];
+            if (video.paused) {
+                video.play();
+                isAutoPlaying = true;
+            } else {
+                video.pause();
+                isAutoPlaying = false;
             }
         });
+
+        muteBtn.addEventListener('click', () => {
+            const video = videos[currentVideoIndex];
+            video.muted = !video.muted;
+            muteBtn.textContent = video.muted ? '🔇' : '🔊';
+        });
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        // Update play/pause button
+        videos.forEach(video => {
+            video.addEventListener('play', () => {
+                playPauseBtn.textContent = '⏸';
+            });
+            
+            video.addEventListener('pause', () => {
+                playPauseBtn.textContent = '⏯';
+            });
+        });
+
+        // Initialize the first video position
+        videoContainer.style.transform = 'translateX(0%)';
     </script>
 </body>
 </html>
